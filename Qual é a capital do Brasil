@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pergunta com Resposta</title>
+</head>
+<body>
+
+    <header>
+        <h1>Questionário</h1>
+    </header>
+
+    <main>
+        <h2>Qual é a capital do Brasil?</h2>
+        <form id="quizForm" onsubmit="return checkAnswer()">
+            <input type="radio" id="alternativa1" name="resposta" value="Brasília">
+            <label for="alternativa1">Brasília</label><br>
+            <input type="radio" id="alternativa2" name="resposta" value="Rio de Janeiro">
+            <label for="alternativa2">Rio de Janeiro</label><br>
+            <input type="radio" id="alternativa3" name="resposta" value="São Paulo">
+            <label for="alternativa3">São Paulo</label><br><br>
+            <button type="submit">Enviar</button>
+        </form>
+        <p id="respostaCorreta" style="display: none;">A resposta correta é <strong>Brasília</strong>.</p>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Minha Empresa</p>
+    </footer>
+
+    <script>
+        function checkAnswer() {
+            var resposta = document.querySelector('input[name="resposta"]:checked');
+            var respostaCorreta = "Brasília";
+            var respostaCorretaElement = document.getElementById("respostaCorreta");
+
+            if (resposta === null) {
+                alert("Por favor, selecione uma resposta.");
+                return false;
+            }
+
+            if (resposta.value === respostaCorreta) {
+                respostaCorretaElement.style.display = "block";
+            } else {
+                respostaCorretaElement.style.display = "none";
+            }
+
+            return false; // Evitar que a página seja recarregada após o envio do formulário
+        }
+    </script>
+
+</body>
+</html>
